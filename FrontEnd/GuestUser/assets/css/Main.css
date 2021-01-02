@@ -1,0 +1,208 @@
+.guest-user-header {
+    width: 100vw;
+    height: 60px;
+    position: fixed;
+    opacity: 0.7;
+    background-color: #175676;
+    display: flex;
+    z-index: 1;
+}
+
+.guest-user-header > h1 {
+    position: relative;
+    font-family: "Noto Sans Canadian Aboriginal";
+    font-weight: bold;
+    color: white;
+    font-size: 28px;
+    top: 12px;
+    left: 500px;
+}
+
+.guest-user-header > div:nth-child(1) {
+    position: relative;
+    top: 12px;
+    left: 765px;
+}
+
+.guest-user-header > div > img {
+    width: 35px;
+    height: 35px;
+    filter: invert(1);
+}
+
+.guest-user-header > div:nth-child(3) {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.guest-user-header > div > button {
+    color: white;
+    border-radius: 2px;
+    border: 1px solid white;
+}
+
+.guest-user-header > div > button:hover {
+    color: white;
+    background-color: #1b6d96;
+}
+
+.register-now-container {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    backdrop-filter: blur(7px);
+    display: none;
+}
+
+.register-now-panel {
+    position: absolute;
+    background-color: white;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 500px;
+    width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 0 50px 3px #000000;
+}
+
+.register-now-panel-header {
+    width: 800px;
+    height: 55px;
+    background-color: #175676;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+
+.register-now-panel-header > h1 {
+    color: white;
+    font-family: "DejaVu Sans";
+    font-size: 23px;
+    position: relative;
+    top: 15px;
+    left: 15px;
+}
+
+.nic-photo-form-group {
+    margin-top: 30px;
+}
+
+.register-now-panel-body > .row:nth-child(4) > div > button:nth-child(1) {
+    position: absolute;
+    right: 115px;
+    background-color: #D62839;
+}
+
+.register-now-panel-body > .row:nth-child(4) > div > button:nth-child(2) {
+    position: absolute;
+    right: 15px;
+    background-color: #175676;
+}
+
+.register-now-panel-body > .row:nth-child(4) > div > button:nth-child(1):hover {
+    background-color: #f22c3f;
+}
+
+.register-now-panel-body > .row:nth-child(4) > div > button:nth-child(2):hover {
+    background-color: #1b6d96;
+}
+
+.register-now-panel-body > .row:nth-child(4) > div > button {
+    color: white;
+    font-family: "DejaVu Sans";
+}
+
+
+main {
+    height: 100vh;
+    width: 100vw;
+    background-color: #e6e6e6;
+    position: relative;
+}
+
+.content-area {
+    position: absolute;
+    height: 80%;
+    width: 95%;
+    background-color: white;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 10px;
+}
+
+table > tbody > tr > td > img:hover {
+    transform: scale(1.5);
+}
+
+.sign-in-container{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 998;
+    backdrop-filter: blur(7px);
+    display: none;
+}
+
+.sign-in-panel {
+    position: absolute;
+    background-color: white;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 400px;
+    width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 0 50px 3px #000000;
+}
+
+.sign-in-panel-header {
+    width: 700px;
+    height: 55px;
+    background-color: #175676;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.sign-in-panel-header > h1 {
+    color: white;
+    font-family: "DejaVu Sans";
+    font-size: 23px;
+    position: relative;
+    top: 15px;
+    left: 15px;
+}
+
+#btnSignInCancel{
+    position: absolute;
+    right: 105px;
+    background-color: #D62839;
+}
+
+#btnSignIn{
+    position: absolute;
+    right: 15px;
+    background-color: #175676;
+}
+
+#btnSignInCancel:hover{
+    background-color: #f22c3f;
+}
+#btnSignIn:hover{
+    background-color: #1b6d96;
+}
+
+#btnSignInCancel,#btnSignIn{
+    color: white;
+    font-family: "DejaVu Sans";
+}
+

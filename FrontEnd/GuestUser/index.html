@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Car Rental | Guest</title>
+    <link href="assets/css/Main.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body onload="loadAllCars()">
+
+<header class="guest-user-header">
+    <div>
+        <img src="assets/icons/logo.svg">
+    </div>
+    <h1>Easy Car Rental</h1>
+    <div>
+        <button type="button" class="btn" id="btnRegisterNow">Register Now</button>
+        <button type="button" class="btn" id="signInButton">Sign In</button>
+    </div>
+</header>
+
+<main>
+    <section class="content-area" style="overflow-y: scroll">
+
+        <table class="table table-hover table-bordered">
+            <thead>
+            <th>Front</th>
+            <th>Back</th>
+            <th>Side</th>
+            <th>Interior</th>
+            <th>Daily Rate</th>
+            <th>Monthly Rate</th>
+            <th>Free Mileage<br>Per Day</th>
+            <th>Free Mileage<br>Per Month</th>
+            <th>Price /KM</th>
+            </thead>
+            <tbody id="tblGuest">
+
+            </tbody>
+        </table>
+
+    </section>
+
+    <section class="register-now-container">
+        <section class="register-now-panel">
+
+            <div class="register-now-panel-header">
+                <h1>Registration</h1>
+            </div>
+            <div class="register-now-panel-body">
+                <div class="row justify-content-around mt-5">
+                    <div class="form-group col-5">
+                        <label for="txtEmail">Email</label>
+                        <input type="text" id="txtEmail" class="form-control">
+                    </div>
+                    <div class="form-group col-5">
+                        <label for="txtPassword">Password</label>
+                        <input type="password" id="txtPassword" class="form-control">
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="form-group col-6">
+                        <label for="txtNic">NIC</label>
+                        <input type="text" id="txtNic" class="form-control">
+                    </div>
+                    <div class="form-group col-4 nic-photo-form-group">
+                        <label class="custom-file-label" for="imgNic">NIC Photo</label>
+                        <input type="file" class="custom-file-input form-control" id="imgNic">
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="form-group col-5">
+                        <label for="txtAddress">Address</label>
+                        <input type="text" id="txtAddress" class="form-control">
+                    </div>
+                    <div class="form-group col-5">
+                        <label for="txtContact">Contact</label>
+                        <input type="text" id="txtContact" class="form-control">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="mt-4">
+                        <button type="button" class="btn" id="btnRegisterNowPanelCancel">Cancel</button>
+                        <button type="button" class="btn" id="btnRegister">Register</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--//////////////////////////////////////Login Panel/////////////////////////////////////////////////////-->
+    </section>
+
+    <section class="sign-in-container">
+        <section class="sign-in-panel">
+            <div class="sign-in-panel-header">
+                <h1>Login</h1>
+            </div>
+            <div class="sign-in-panel-body">
+                <div class="row justify-content-around mt-5">
+                    <div class="form-group col-5">
+                        <label for="txtLoginNic">NIC</label>
+                        <input type="text" id="txtLoginNic" class="form-control">
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="form-group col-5">
+                        <label for="txtLoginPassword">Password</label>
+                        <input type="password" id="txtLoginPassword" class="form-control">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="mt-4">
+                        <button type="button" class="btn" id="btnSignInCancel">Cancel</button>
+                        <a id="loginLink">
+                            <button type="button" class="btn" id="btnSignIn">Sign In</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+</main>
+
+
+<script src="assets/lib/jquery-3.4.1.min.js"></script>
+<script src="assets/javascript/bootstrap.min.js"></script>
+<script src="assets/javascript/Main.js"></script>
+</body>
+</html>

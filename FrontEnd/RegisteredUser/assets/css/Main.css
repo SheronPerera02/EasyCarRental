@@ -1,0 +1,151 @@
+.registered-user-header{
+    width: 100vw;
+    height: 60px;
+    position: fixed;
+    opacity: 0.7;
+    background-color: #175676;
+    display: flex;
+    z-index: 1;
+}
+
+.registered-user-header>h1{
+    position: relative;
+    font-family: "Noto Sans Canadian Aboriginal";
+    font-weight: bold;
+    color: white;
+    font-size: 28px;
+    top: 12px;
+    left: 410px;
+}
+
+.registered-user-header>div:nth-child(1){
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.registered-user-header>div:nth-child(2){
+    position: relative;
+    top: 12px;
+    left: 675px;
+}
+
+.registered-user-header>div>img{
+    width: 35px;
+    height: 35px;
+    filter: invert(1);
+}
+
+.registered-user-header>div:nth-child(4){
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.registered-user-header>div button{
+    color: white;
+    border-radius: 2px;
+    border: 1px solid white;
+}
+
+.registered-user-header>div button:hover{
+    color: white;
+    background-color: #1b6d96;
+}
+
+main{
+    height: 100vh;
+    width: 100vw;
+    background-color: #e6e6e6;
+    position: relative;
+}
+
+.view-to-rent-cars, .rent-car-panel, .update-profile-panel, .my-rents-panel{
+    position: absolute;
+    height: 80%;
+    width: 95%;
+    background-color: white;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.view-to-rent-cars{
+    display: block;
+}
+
+.rent-car-panel{
+    display: none;
+}
+
+.my-rents-panel{
+    display: none;
+}
+.update-profile-panel{
+    display: none;
+}
+
+#tblUserViewCars img:hover{
+    transform: scale(1.5);
+}
+
+.btn-go-back-update-profile, .btn-go-back-my-rents, .btn-go-back-rent-car{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.btn-add-more-cars-container{
+    padding-right: 165px;
+    padding-top: 10px;
+}
+
+
+
+.request-status-container{
+    position: relative;
+    height: 130px;
+    width: 250px;
+    border-radius: 10px;
+}
+.request-status-container>div{
+    height: max-content;
+    width: max-content;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.request-status-container>div>h1{
+    color: white;
+    font-size: 25px;
+    font-family: "DejaVu Sans";
+    font-weight: bold;
+}
+
+.rejection-reason-container{
+    display: none;
+}
+
+.rejection-reason-container>p{
+    font-size: 20px;
+    text-align: center;
+}
+
+#btnUpdate{
+    position: relative;
+    left: 255px;
+}
+
+
+
+
+
+
+
+

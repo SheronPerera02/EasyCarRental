@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Car Rental | User</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/Main.css" rel="stylesheet">
+</head>
+<body onload="loadAllCars()">
+<header class="registered-user-header">
+    <div>
+        <button type="button" class="btn" id="btnMyAccount">My Account</button>
+    </div>
+    <div>
+        <img src="assets/icons/logo.svg">
+    </div>
+    <h1>Easy Car Rental</h1>
+    <div>
+        <button type="button" class="btn" id="btnMyRent">My Rent</button>
+        <a>
+            <button type="button" class="btn" id="btnSignOut" onclick="Navigate()">Sign Out</button>
+        </a>
+    </div>
+</header>
+
+<main>
+
+    <section class="view-to-rent-cars" style="overflow-y: scroll; overflow-x: scroll">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <th>Front</th>
+            <th>Back</th>
+            <th>Side</th>
+            <th>Interior</th>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Transmission Type</th>
+            <th>Fuel Type</th>
+            <th>Daily Rate</th>
+            <th>Monthly Rate</th>
+            <th>Free Mileage Per Day</th>
+            <th>Free Mileage Per Month</th>
+            <th>Price /KM</th>
+            <th>Choose</th>
+            </thead>
+            <tbody id="tblUserViewCars">
+
+            </tbody>
+        </table>
+    </section>
+
+
+    <section class="rent-car-panel">
+        <div class="btn-go-back-rent-car">
+            <button type="button" class="btn btn-danger" style="font-family: 'DejaVu Sans'" onclick="goBack()">Go Back
+            </button>
+        </div>
+
+
+        <div class="row justify-content-around pt-3">
+            <div style="overflow-y: scroll; width: 1000px; height: 230px">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    <th>Car</th>
+                    <th>Waiver Amount</th>
+                    <th>Waiver Proof</th>
+                    <th>Driver</th>
+                    </thead>
+                    <tbody id="tblRentCar">
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="btn-add-more-cars-container">
+                <button id="btnAddMoreCars" type="button" class="btn btn-success" style="font-family: 'DejaVu Sans'"
+                        onclick="">+ Add
+                </button>
+            </div>
+        </div>
+        <div class="row justify-content-around">
+            <div class="row">
+                <div class="col-3">
+                    <p style="margin-bottom: 0; font-family: 'DejaVu Sans'">Pickup Date</p>
+                    <input type="date" id="pickupDate" class="form-control date-picker">
+                </div>
+                <div class="col-3">
+                    <p style="margin-bottom: 0; font-family: 'DejaVu Sans'">Pickup Time</p>
+                    <input type="time" id="pickupTime" class="form-control date-picker">
+                </div>
+                <div class="col-3">
+                    <p style="margin-bottom: 0; font-family: 'DejaVu Sans'">Return Date</p>
+                    <input type="date" id="returnDate" class="form-control date-picker">
+                </div>
+                <div class="col-3">
+                    <p style="margin-bottom: 0; font-family: 'DejaVu Sans'">Return Time</p>
+                    <input type="time" id="returnTime" class="form-control date-picker">
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-around mt-2">
+            <div class="row">
+                <div class="col-4">
+                    <p style="margin-bottom: 0; font-family: 'DejaVu Sans'">Pickup Venue</p>
+                    <input type="text" id="pickupVenue" class="form-control date-picker">
+                </div>
+                <div class="col-4">
+                    <p style="margin-bottom: 0; font-family: 'DejaVu Sans'">Return Venue</p>
+                    <input type="text" id="returnVenue" class="form-control date-picker">
+                </div>
+                <div class="col-4">
+                    <p style="margin-bottom: 0; font-family: 'DejaVu Sans'">Duration Plan</p>
+                    <select id="cmbDurationPlan" class="form-control">
+                        <option>Daily</option>
+                        <option>Monthly</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-around">
+            <div class="mt-4" style="position: relative; right: 25px">
+                <button type="button" class="btn btn-primary" id="btnFinalizeRent">Finalize Rent</button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="my-rents-panel">
+        <div class="btn-go-back-my-rents">
+            <button type="button" class="btn btn-danger" style="font-family: 'DejaVu Sans'" onclick="goBack()"
+                    id="btnBack">Go Back
+            </button>
+        </div>
+
+        <div class="row justify-content-around pt-3">
+            <div class="request-status-container">
+                <div><h1></h1></div>
+            </div>
+        </div>
+
+        <div class="row justify-content-around pt-3">
+            <div class="driver-contact-table-container" style="overflow-y: scroll; width: 500px; height: 200px">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    <th>Driver</th>
+                    <th>Contact</th>
+                    </thead>
+                    <tbody id="tblDriverContacts">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="rejection-reason-container pt-4" style="width: 500px; height: 200px">
+                <p id="denialMessage"></p>
+            </div>
+        </div>
+
+        <div class="row justify-content-around pt-4">
+            <div>
+                <button type="button" class="btn btn-warning" style="font-family: 'DejaVu Sans'" id="btnCancelReq">
+                    Cancel Request
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="update-profile-panel">
+        <div class="btn-go-back-update-profile">
+            <button type="button" class="btn btn-danger" style="font-family: 'DejaVu Sans'" onclick="goBack()">Go Back
+            </button>
+        </div>
+
+        <div>
+            <div class="row justify-content-around mt-3">
+                <div class="form-group col-4">
+                    <label for="txtAddress">Address</label>
+                    <input id="txtAddress" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                <div class="form-group col-4">
+                    <label for="txtContact">Contact</label>
+                    <input id="txtContact" type="email" class="form-control">
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                <div class="form-group col-4">
+                    <label for="txtEmail">Email</label>
+                    <input id="txtEmail" type="tel" class="form-control">
+                </div>
+            </div>
+            <div class="row justify-content-around pt-3">
+                <div class="form-group col-3">
+                    <label class="custom-file-label" for="imgNic">NIC Photo</label>
+                    <input type="file" class="custom-file-input form-control" id="imgNic">
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                <div class="form-group col-4">
+                    <label for="txtPassword">Password</label>
+                    <input id="txtPassword" type="password" class="form-control">
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                <div class="form-check form-check-inline">
+                    <input class='form-check-input' type='checkbox' id="rdoShowPassword">
+                    <label class='form-check-label'>Show Password</label>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-around">
+                <div class="row form-group col-4">
+                    <button type="button" class="btn btn-danger" id="btnCancel">Cancel</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" onclick="updateAccount()" id="btnUpdate">Update</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="assets/lib/jquery-3.4.1.min.js"></script>
+<script src="assets/javascript/bootstrap.min.js"></script>
+<script src="assets/javascript/Main.js"></script>
+</body>
+</html>

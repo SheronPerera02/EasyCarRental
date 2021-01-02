@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Car Rental | Admin</title>
+    <link href="assets/css/Main.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body onload="switchToDashboard()">
+<header class="header">
+    <div>
+        <img src="assets/icons/landingPageIcons/logo.svg">
+    </div>
+    <h1>Easy Car</h1>
+</header>
+
+<main>
+
+
+    <section class="side-panel-container">
+        <section class="side-panel-top">
+            <ul>
+                <img src="assets/icons/landingPageIcons/dashboard.png">
+                <img src="assets/icons/landingPageIcons/car.png">
+                <img src="assets/icons/landingPageIcons/customer.png">
+                <img src="assets/icons/landingPageIcons/income.png">
+                <img src="assets/icons/landingPageIcons/rentcar.png">
+            </ul>
+        </section>
+
+        <section class="side-panel-bottom">
+            <ul>
+                <li class="btn" id="btnDashboard" onclick="switchToDashboard()">Dashboard</li>
+                <li class="btn" id="btnManageCars" onclick="switchToManageCars()">Manage Cars</li>
+                <li class="btn" id="btnViewCustomers" onclick="switchToViewCustomers()">View Customers</li>
+                <li class="btn" id="btnCalculateIncome" onclick="switchToViewIncome()">Calculate Income</li>
+                <li class="btn" id="btnViewRentalReq" onclick="switchToViewRentalRequests()">View Rental Requests</li>
+            </ul>
+        </section>
+    </section>
+
+    <section class="main-container">
+        <!--=====================================DASHBOARD==================================-->
+        <section class="dashboard-container">
+            <section>
+                <section>
+                    <div>
+                        <div>
+                            <img src="assets/icons/dashboardIcons/registeredUsers.png">
+                        </div>
+                        <h1 id="registeredUsers"></h1>
+                        <p>Registered Users</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="assets/icons/dashboardIcons/bookings.png">
+                        </div>
+                        <h1 id="totalBookings"></h1>
+                        <p>Total Bookings</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="assets/icons/dashboardIcons/activeBookings.png">
+                        </div>
+                        <h1 id="activeBookings"></h1>
+                        <p>Active Bookings</p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <div>
+                            <img src="assets/icons/dashboardIcons/availableCars.png">
+                        </div>
+                        <h1 id="availableCars"></h1>
+                        <p>Available Cars</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="assets/icons/dashboardIcons/reservedCars.png">
+                        </div>
+                        <h1 id="reservedCars"></h1>
+                        <p>Reserved Cars</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="assets/icons/dashboardIcons/needMaintenance.png">
+                        </div>
+                        <h1 id="carsNeedMaintenance"></h1>
+                        <p style="text-align: right">Cars /<br> Need Maintenance</p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <div>
+                            <img src="assets/icons/dashboardIcons/availableDrivers.png">
+                        </div>
+                        <h1 id="availableDrivers"></h1>
+                        <p>Available Drivers</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="assets/icons/dashboardIcons/occupiedDrivers.png">
+                        </div>
+                        <h1 id="occupiedDrivers"></h1>
+                        <p>Occupied Drivers</p>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="assets/icons/dashboardIcons/underMaintenance.png">
+                        </div>
+                        <h1 id="carsUnderMaintenance"></h1>
+                        <p style="text-align: right">Cars /<br> Under Maintenance</p>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <!--=====================================MANAGE CARS==================================-->
+
+        <section class="manage-cars-container">
+            <section class="manage-cars-option-header">
+                <div>
+                    <button type="button" class="btn btn-outline-primary" id="addCar">Add Car</button>
+                    &nbsp
+                    <button type="button" class="btn btn-outline-primary" id="viewCars">View Cars</button>
+                    &nbsp
+                    <button type="button" class="btn btn-outline-primary" id="editCar">Edit Cars</button>
+                </div>
+            </section>
+            <section class="manage-cars-option-container">
+
+
+                <section class="add-car container-fluid">
+                    <form enctype="multipart/form-data">
+                        <div class="row justify-content-around">
+                            <div class="form-group col-3 pt-2">
+                                <label for="txtRegistrationNo">Registration No</label>
+                                <input type="text" id="txtRegistrationNo" class="form-control" name="id">
+                            </div>
+                            <div class="form-group col-3 pt-2">
+                                <label for="txtBrand">Brand</label>
+                                <input type="text" id="txtBrand" class="form-control">
+                            </div>
+                            <div class="form-group col-3 pt-2">
+                                <label for="cmbType">Type</label>
+                                <select id="cmbType" class="form-control">
+                                    <option>General</option>
+                                    <option>Premium</option>
+                                    <option>Luxury</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-around">
+                            <div class="custom-file col-2">
+                                <label class="custom-file-label" for="frontImg">Front Image</label>
+                                <input type="file" class="custom-file-input" id="frontImg" name="file">
+                            </div>
+                            <div class="custom-file col-2">
+                                <label class="custom-file-label" for="backImg">Back Image</label>
+                                <input type="file" class="custom-file-input" id="backImg">
+                            </div>
+                            <div class="custom-file col-2">
+                                <label class="custom-file-label" for="sideImg">Side Image</label>
+                                <input type="file" class="custom-file-input" id="sideImg">
+                            </div>
+                            <div class="custom-file col-2">
+                                <label class="custom-file-label" for="interiorImg">Interior Image</label>
+                                <input type="file" class="custom-file-input" id="interiorImg">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-around">
+                            <div class="form-group col-2">
+                                <label for="cmbNoOfPassengers">No Of Passengers</label>
+                                <select id="cmbNoOfPassengers" class="form-control">
+                                    <option>2</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-2">
+                                <label for="cmbTransmissionType">Transmission Type</label>
+                                <select id="cmbTransmissionType" class="form-control">
+                                    <option>Auto</option>
+                                    <option>Manual</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-2">
+                                <label for="cmbFuelType">Fuel Type</label>
+                                <select id="cmbFuelType" class="form-control">
+                                    <option>Diesel</option>
+                                    <option>Petrol</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-2">
+                                <label for="txtColor">Color</label>
+                                <input type="text" class="form-control" id="txtColor">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-around">
+                            <div class="form-group col-2">
+                                <label for="txtDailyPriceIncrement">Daily Rate</label>
+                                <input type="number" class="form-control" id="txtDailyPriceIncrement">
+                            </div>
+                            <div class="form-group col-2">
+                                <label for="txtMonthlyPriceIncrement">Monthly Rate</label>
+                                <input type="number" class="form-control" id="txtMonthlyPriceIncrement">
+                            </div>
+                            <div class="form-group col-2">
+                                <label for="txtFreeMileagePerDay">Free Mileage /Day</label>
+                                <input type="number" class="form-control" id="txtFreeMileagePerDay">
+                            </div>
+                            <div class="form-group col-2">
+                                <label for="txtFreeMileagePerMonth">Free Mileage /Month</label>
+                                <input type="number" class="form-control" id="txtFreeMileagePerMonth">
+                            </div>
+                            <div class="form-group col-2">
+                                <label for="txtPricePerKm">Price Per KM</label>
+                                <input type="number" class="form-control" id="txtPricePerKm">
+                            </div>
+                            <div class="form-group col-2">
+                                <label for="txtKmMeterValue">KM Meter Value</label>
+                                <input type="number" class="form-control" id="txtKmMeterValue">
+                            </div>
+                        </div>
+                        <div class="row justify-content-around">
+                            <button type="button" class="btn btn-danger" onclick="addCarToTheLot()">Add Car To The Lot
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+
+                <section class="view-cars">
+
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <th>Reg No</th>
+                        <th>Brand</th>
+                        <th>Type</th>
+                        <th>Front</th>
+                        <th>Back</th>
+                        <th>Side</th>
+                        <th>Interior</th>
+                        <th>No Of Passengers</th>
+                        <th>Transmission</th>
+                        <th>Fuel Type</th>
+                        <th>Color</th>
+                        <th>Daily Rate</th>
+                        <th>Monthly Rate</th>
+                        <th>Free Mileage Per Day</th>
+                        <th>Free Mileage Per Month</th>
+                        <th>Price /Km</th>
+                        <th>KM Meter Value</th>
+                        <th>Available</th>
+                        <th>Damaged</th>
+                        <th>Under Maintenance</th>
+
+                        </thead>
+                        <tbody id="tblViewCars">
+
+                        </tbody>
+                    </table>
+
+                </section>
+
+
+                <section class="edit-cars" style="overflow-x: scroll; overflow-y: scroll">
+
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <th>Reg No</th>
+                        <th>Front</th>
+                        <th>Back</th>
+                        <th>Side</th>
+                        <th>Interior</th>
+                        <th>Color</th>
+                        <th>Daily Rate</th>
+                        <th>Monthly Rate</th>
+                        <th>Free Mileage Per Day</th>
+                        <th>Free Mileage Per Month</th>
+                        <th>Price /Km</th>
+                        <th>Edit</th>
+                        <th>Mark Damaged</th>
+                        <th>Add To Maintenance/<br>Mark Repaired</th>
+                        <th>Remove</th>
+                        </thead>
+                        <tbody id="tblEditCars">
+
+                        </tbody>
+                    </table>
+
+                </section>
+
+
+            </section>
+        </section>
+
+
+        <!--=====================================VIEW CUSTOMERS==================================-->
+
+        <section class="view-customers-container">
+
+            <div>
+                <table class="table table-hover table-bordered">
+                    <thead class="table-primary">
+                    <th>NIC</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Verify Details</th>
+                    </thead>
+                    <tbody id="tblViewCustomers">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!--=====================================CALCULATE INCOME==================================-->
+
+        <section class="calculate-income-container">
+
+            <div class="calculate-income-header">
+                <div>
+                    <h1 id="year"></h1>
+                </div>
+            </div>
+            <div class="calculate-income">
+                <div>
+                    <div>
+                        <p>Daily Income</p>
+                        <div>
+                            <h1 id="dailyIncome"></h1>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Weekly Income</p>
+                        <div>
+                            <h1 id="weeklyIncome"></h1>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p>Monthly Income</p>
+                        <div>
+                            <h1 id="monthlyIncome"></h1>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Yearly Income</p>
+                        <div>
+                            <h1 id="yearlyIncome"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!--=====================================VIEW RENTAL REQUESTS==================================-->
+
+        <section class="view-rental-requests-container">
+            <div class="view-rental-requests-option-header">
+                <div>
+                    <button onclick="viewRentals($(this))" type="button" class="btn btn-outline-primary"
+                            id="btnViewRentalRequests">View Rental
+                        Requests
+                    </button>
+                    &nbsp
+                    <button onclick="viewRequestsForPayment($(this))" type="button" class="btn btn-outline-primary"
+                            id="btnCalculatePayment">Calculate Payment
+                    </button>
+                </div>
+            </div>
+
+            <div class="view-rental-requests-option-container">
+
+                <div class="view-rentals" style="overflow-y: scroll; overflow-x: scroll">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-primary">
+                        <th>Rent ID</th>
+                        <th>Duration Plan</th>
+                        <th>Cus ID</th>
+                        <th>Pickup Date</th>
+                        <th>Return Date</th>
+                        <th>Pickup Venue</th>
+                        <th>Return Venue</th>
+                        <th>Pickup Time</th>
+                        <th>Return Time</th>
+                        <th>Driver IDs</th>
+                        <th>Driver Names</th>
+                        <th>Edit Drivers</th>
+                        <th>Car Reg No's</th>
+                        <th>Rent State</th>
+                        <th>Description</th>
+                        <th>Accept/<br>Deny</th>
+                        </thead>
+                        <tbody id="viewRentalsTable">
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="change-driver">
+                    <div class="row justify-content-around">
+                        <div class="col-4 pt-4 mt-3" style="height: 350px; overflow-y: scroll">
+                            <table class="table table-hover table-bordered">
+                                <thead class="table-primary">
+                                <th>Driver ID</th>
+                                <th>Driver Name</th>
+                                <th>Replacement</th>
+                                </thead>
+                                <tbody id="tblCurrentDrivers">
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="col-4 pt-4 mt-3 tbl-driver-replacements-container" style="height: 350px;">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <thead class="table-primary">
+                                    <th>Driver ID</th>
+                                    <th>Driver Name</th>
+                                    </thead>
+                                    <tbody id="tblDriverReplacements">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-danger" style="position: absolute; left: 310px"
+                                id="btnCancel">Cancel
+                        </button>
+                        <button type="button" class="btn btn-success" style="position: absolute; left: 400px"
+                                id="btnFinalizeDrivers">Finalize
+                        </button>
+                        <button id="btnReplace" type="button" class="btn btn-warning"
+                                style="position: absolute; right: 100px">Replace
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="calculate-payment container-fluid">
+
+                    <div class="row">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-primary">
+                            <th>Rent ID</th>
+                            <th>Duration Plan</th>
+                            <th>Cus ID</th>
+                            <th>Pickup Date</th>
+                            <th>Return Date</th>
+                            <th>Pickup Venue</th>
+                            <th>Return Venue</th>
+                            <th>Driver IDs</th>
+                            <th>Driver Names</th>
+                            <th>Calculate Payment</th>
+                            </thead>
+                            <tbody id="tblCalculatePayment">
+                            <tr>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-primary">
+                            <th>Reg No</th>
+                            <th>Brand</th>
+                            <th>Type</th>
+                            <th>Color</th>
+                            <th>Waiver Deduction</th>
+                            <th>Km Meter Value</th>
+                            </thead>
+                            <tbody id="tblCarsForPayment">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="form-group" id="additionalPaymentContainer">
+                        <label for="txtAdditionalPayment">+Additional</label>
+                        <input type="number" class="form-control" id="txtAdditionalPayment">
+                    </div>
+                    <button type="button" class="btn btn-warning font-weight-bold" id="btnFinalizePayment">Finalize
+                        Payment
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<!--///////////////////////////////////////Edit-Car Modal////////////////////////////////////////////////////-->
+
+<div aria-hidden="true" aria-labelledby="editCar" class="modal fade" id="editCarMdl" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateItem">Edit Car</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="height: 1050px">
+
+                <div class="row justify-content-around">
+                    <div class="form-group col-5">
+                        <label for="txtRegNo">Reg No</label>
+                        <input class="form-control" id="txtRegNo" disabled>
+                    </div>
+
+                    <div class="form-group col-console.log(resp.data);5">
+                        <label for="editCarColor">Color</label>
+                        <input class="form-control" id="editCarColor">
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="form-group col-5">
+                        <label for="editDailyRate">Daily Rate</label>
+                        <input class="form-control" id="editDailyRate" type="number">
+                    </div>
+                    <div class="form-group col-5">
+                        <label for="editMonthlyRate">Monthly Rate</label>
+                        <input class="form-control" id="editMonthlyRate" type="number">
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="form-group col-5">
+                        <label for="editFreeMileagePerDay">Free Mileage Per Day</label>
+                        <input class="form-control" id="editFreeMileagePerDay" type="number">
+                    </div>
+                    <div class="form-group col-5">
+                        <label for="editFreeMileagePerMonth">Free Mileage Per Month</label>
+                        <input class="form-control" id="editFreeMileagePerMonth" type="number">
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="form-group col-5">
+                        <label for="editPricePerKm">Price Per KM</label>
+                        <input class="form-control" id="editPricePerKm" type="number">
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="row col-8 justify-content-around">
+                        <img id="imgFront" style='width: 150px; height: 100px'>
+                    </div>
+                    <div class="row custom-file col-8 mt-3">
+                        <label class="custom-file-label" for="editFrontImg">Front Image Replacement</label>
+                        <input type="file" class="custom-file-input" id="editFrontImg">
+                    </div>
+                </div>
+                <div class="row justify-content-around pt-3">
+                    <div class="row col-8 justify-content-around">
+                        <img id="imgBack" style='width: 150px; height: 100px'>
+                    </div>
+                    <div class="row custom-file col-8 mt-3">
+                        <label class="custom-file-label" for="editBackImg">Back Image Replacement</label>
+                        <input type="file" class="custom-file-input" id="editBackImg">
+                    </div>
+                </div>
+                <div class="row justify-content-around pt-3">
+                    <div class="row col-8 justify-content-around">
+                        <img id="imgSide" style='width: 150px; height: 100px'>
+                    </div>
+                    <div class="row custom-file col-8 mt-3">
+                        <label class="custom-file-label" for="editSideImg">Side Image Replacement</label>
+                        <input type="file" class="custom-file-input" id="editSideImg">
+                    </div>
+                </div>
+                <div class="row justify-content-around pt-3">
+                    <div class="row col-8 justify-content-around">
+                        <img id="imgInterior" style='width: 150px; height: 100px'>
+                    </div>
+                    <div class="row custom-file col-8 mt-3">
+                        <label class="custom-file-label" for="editInteriorImg">Interior Image Replacement</label>
+                        <input type="file" class="custom-file-input" id="editInteriorImg">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" data-dismiss="modal" type="button" id="btnCancelUpdateCar">Cancel
+                </button>
+                <button class="btn btn-primary" type="button" id="btnUpdateCar" onclick="updateCar()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="idPhoto" class="modal fade" id="idPhotoMdl" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ID Photo</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" type="button" id="btnDone">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="denialMessage" class="modal fade" id="denialMessageMdl" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Denial Message</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-12">
+                        <textarea type="textarea" class="form-control" id="txtMessage"></textarea>
+                    </div>
+                    <div class="form-group col-12">
+                        <span class="text-danger" id="spnEnterMsg">Enter Message!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" onclick="deny($(this))">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/lib/jquery-3.4.1.min.js"></script>
+<script src="assets/javascript/bootstrap.min.js"></script>
+<script src="assets/javascript/Main.js"></script>
+<script src="assets/javascript/manageCars/manageCars.js"></script>
+<script src="assets/javascript/manageCars/addCar/addCarFunctions.js"></script>
+<script src="assets/javascript/manageCars/viewCars/viewCarsFunctions.js"></script>
+<script src="assets/javascript/manageCars/editCar/editCarFunctions.js"></script>
+<script src="assets/javascript/viewCustomers/viewCustomersFunctions.js"></script>
+<script src="assets/javascript/viewRentalRequests/viewRentalRequestsFunctions.js"></script>
+<script src="assets/javascript/calculateIncome/calculateIncomeFunctions.js"></script>
+
+
+</body>
+</html>
